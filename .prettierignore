@@ -1,0 +1,11 @@
+node_modules
+
+/dist
+.env
+
+/test-results/
+/playwright-report/
+/playwright/.cache/
+/coverage
+
+package-lock.json
