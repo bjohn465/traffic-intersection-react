@@ -5,3 +5,20 @@
 html {
 	font-family: system-ui;
 }
+
+.traffic-light-tooltip {
+	position-area: block-end;
+
+	padding: 8px;
+	border-radius: 6px;
+	background: #271717;
+	color: whitesmoke;
+	box-shadow: 1px 1px 3px #999;
+	border: none;
+}
+
+/* If a tooltip is already displayed,
+don't make the user wait to display another tooltip. */
+body:has(button:interest-source) button {
+	interest-delay-start: 0s;
+}
