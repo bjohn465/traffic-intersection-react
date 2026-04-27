@@ -8,6 +8,7 @@ html {
 
 .traffic-light-tooltip {
 	position-area: block-end;
+	margin-block-start: 2px;
 
 	padding: 8px;
 	border-radius: 6px;
@@ -37,6 +38,27 @@ body:has(button:interest-source) button {
 	}
 }
 
+.traffic-light-details {
+	position-area: block-start;
+	margin-block-end: 2px;
+
+	width: 200px;
+	padding: 8px;
+	border-radius: 6px;
+	background: #333;
+	color: #fff;
+	box-shadow: 1px 1px 3px #999;
+	border: none;
+
+	& .traffic-light-label {
+		margin-block-start: 0;
+	}
+
+	& .traffic-light-state {
+		margin-block-end: 0;
+	}
+}
+
 .traffic-light {
 	& .traffic-light-button {
 		--image-width: 50px;
@@ -46,13 +68,31 @@ body:has(button:interest-source) button {
 		background-repeat: no-repeat;
 		background-size: calc(var(--image-width) + var(--button-width));
 	}
-	&.red-state .traffic-light-button {
-		background-position: 0 0;
+	&.red-state {
+		& .traffic-light-button {
+			background-position: 0 0;
+		}
+
+		& .traffic-light-details .state-text {
+			color: #ff7777;
+		}
 	}
-	&.yellow-state .traffic-light-button {
-		background-position: calc(-1 * var(--button-width)) 0;
+	&.yellow-state {
+		& .traffic-light-button {
+			background-position: calc(-1 * var(--button-width)) 0;
+		}
+
+		& .traffic-light-details .state-text {
+			color: #ffbd43;
+		}
 	}
-	&.green-state .traffic-light-button {
-		background-position: calc(-2 * var(--button-width)) 0;
+	&.green-state {
+		& .traffic-light-button {
+			background-position: calc(-2 * var(--button-width)) 0;
+		}
+
+		& .traffic-light-details .state-text {
+			color: #00f100;
+		}
 	}
 }

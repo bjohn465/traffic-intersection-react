@@ -62,10 +62,16 @@ type TrafficLightButtonTooltipProviderProps = {
  * @example
  * ```tsx
  * // Within a `TrafficLightButtonTooltipProvider` element:
- * <TrafficLightButton label="Northbound Lane 1 Traffic Light" />
+ * <TrafficLightButton
+ * 	detailsId="details-1"
+ * 	label="Northbound Lane 1 Traffic Light"
+ * />
  * ```
  */
-export function TrafficLightButton({ label }: TrafficLightButtonProps) {
+export function TrafficLightButton({
+	detailsId,
+	label,
+}: TrafficLightButtonProps) {
 	const tooltipId = useContext(TooltipIdContext)
 	if (!tooltipId) {
 		throw new Error(
@@ -78,12 +84,16 @@ export function TrafficLightButton({ label }: TrafficLightButtonProps) {
 			aria-label={label}
 			className="traffic-light-button"
 			interestfor={tooltipId}
+			popoverTarget={detailsId}
+			popoverTargetAction="toggle"
 			type="button"
 		/>
 	)
 }
 
 type TrafficLightButtonProps = {
+	/** The ID of the element that contains the details about the associated traffic light. */
+	detailsId: string
 	/** The text label for this button, describing the location of the traffic light. */
 	label: string
 }

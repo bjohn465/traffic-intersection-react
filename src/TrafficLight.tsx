@@ -1,4 +1,6 @@
+import { useId } from 'react'
 import { TrafficLightButton } from './TrafficLightButton'
+import { TrafficLightDetails } from './TrafficLightDetails'
 import { type TrafficLightState } from './TrafficLightStates'
 
 /**
@@ -19,9 +21,11 @@ import { type TrafficLightState } from './TrafficLightStates'
  * ```
  */
 export function TrafficLight({ label, state }: TrafficLightProps) {
+	const detailsId = useId()
 	return (
 		<div className={`traffic-light ${state}-state`}>
-			<TrafficLightButton label={label} />
+			<TrafficLightButton detailsId={detailsId} label={label} />
+			<TrafficLightDetails id={detailsId} label={label} state={state} />
 		</div>
 	)
 }
