@@ -22,3 +22,13 @@ don't make the user wait to display another tooltip. */
 body:has(button:interest-source) button {
 	interest-delay-start: 0s;
 }
+
+.traffic-light-button {
+	all: unset;
+	cursor: pointer;
+
+	&:focus {
+		outline: 3px solid #ffba39;
+		outline-offset: 2px;
+	}
+}
