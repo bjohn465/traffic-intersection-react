@@ -1,12 +1,15 @@
-import { useState } from 'react'
+import { useState, useMemo } from 'react'
 import { Intersection } from './Intersection'
-import { states } from './IntersectionState'
+import { IntersectionStateMachine } from './IntersectionStateMachine'
 
 export default function App() {
-	const [currentStateIndex, setCurrentStateIndex] = useState(0)
-	const state = states[currentStateIndex]
-	const handleChangeStateClick = () =>
-		setCurrentStateIndex((previousIndex) => (previousIndex + 1) % states.length)
+	const machine = useMemo(() => new IntersectionStateMachine(), [])
+	const [state, setState] = useState(() => machine.getState())
+
+	const handleChangeStateClick = () => {
+		machine.next()
+		setState(machine.getState())
+	}
 
 	return (
 		<>
