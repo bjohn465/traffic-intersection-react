@@ -144,9 +144,112 @@ const northAndSouthThroughCycle: ReadonlyArray<IntersectionState> =
 		},
 	])
 
+const eastAndWestLeftTurnCycle: ReadonlyArray<IntersectionState> =
+	Object.freeze([
+		{
+			north: Object.freeze({
+				left: LeftArrowTrafficLightStates.RED_LEFT_ARROW,
+				through: StandardTrafficLightStates.RED,
+			}),
+			east: Object.freeze({
+				left: LeftArrowTrafficLightStates.GREEN_LEFT_ARROW,
+				through: StandardTrafficLightStates.RED,
+			}),
+			south: Object.freeze({
+				left: LeftArrowTrafficLightStates.RED_LEFT_ARROW,
+				through: StandardTrafficLightStates.RED,
+			}),
+			west: Object.freeze({
+				left: LeftArrowTrafficLightStates.GREEN_LEFT_ARROW,
+				through: StandardTrafficLightStates.RED,
+			}),
+		},
+		{
+			north: Object.freeze({
+				left: LeftArrowTrafficLightStates.RED_LEFT_ARROW,
+				through: StandardTrafficLightStates.RED,
+			}),
+			east: Object.freeze({
+				left: LeftArrowTrafficLightStates.YELLOW_LEFT_ARROW,
+				through: StandardTrafficLightStates.RED,
+			}),
+			south: Object.freeze({
+				left: LeftArrowTrafficLightStates.RED_LEFT_ARROW,
+				through: StandardTrafficLightStates.RED,
+			}),
+			west: Object.freeze({
+				left: LeftArrowTrafficLightStates.YELLOW_LEFT_ARROW,
+				through: StandardTrafficLightStates.RED,
+			}),
+		},
+	])
+
+const eastAndWestThroughCycle: ReadonlyArray<IntersectionState> = Object.freeze(
+	[
+		{
+			north: Object.freeze({
+				left: LeftArrowTrafficLightStates.RED_LEFT_ARROW,
+				through: StandardTrafficLightStates.RED,
+			}),
+			east: Object.freeze({
+				left: LeftArrowTrafficLightStates.RED_LEFT_ARROW,
+				through: StandardTrafficLightStates.GREEN,
+			}),
+			south: Object.freeze({
+				left: LeftArrowTrafficLightStates.RED_LEFT_ARROW,
+				through: StandardTrafficLightStates.RED,
+			}),
+			west: Object.freeze({
+				left: LeftArrowTrafficLightStates.RED_LEFT_ARROW,
+				through: StandardTrafficLightStates.GREEN,
+			}),
+		},
+		{
+			north: Object.freeze({
+				left: LeftArrowTrafficLightStates.RED_LEFT_ARROW,
+				through: StandardTrafficLightStates.RED,
+			}),
+			east: Object.freeze({
+				left: LeftArrowTrafficLightStates.FLASHING_YELLOW_LEFT_ARROW,
+				through: StandardTrafficLightStates.GREEN,
+			}),
+			south: Object.freeze({
+				left: LeftArrowTrafficLightStates.RED_LEFT_ARROW,
+				through: StandardTrafficLightStates.RED,
+			}),
+			west: Object.freeze({
+				left: LeftArrowTrafficLightStates.FLASHING_YELLOW_LEFT_ARROW,
+				through: StandardTrafficLightStates.GREEN,
+			}),
+		},
+		{
+			north: Object.freeze({
+				left: LeftArrowTrafficLightStates.RED_LEFT_ARROW,
+				through: StandardTrafficLightStates.RED,
+			}),
+			east: Object.freeze({
+				left: LeftArrowTrafficLightStates.YELLOW_LEFT_ARROW,
+				through: StandardTrafficLightStates.YELLOW,
+			}),
+			south: Object.freeze({
+				left: LeftArrowTrafficLightStates.RED_LEFT_ARROW,
+				through: StandardTrafficLightStates.RED,
+			}),
+			west: Object.freeze({
+				left: LeftArrowTrafficLightStates.YELLOW_LEFT_ARROW,
+				through: StandardTrafficLightStates.YELLOW,
+			}),
+		},
+	],
+)
+
 const states: ReadonlyArray<IntersectionState> = Object.freeze([
 	allRedState,
 	...northAndSouthLeftTurnCycle,
 	allRedState,
 	...northAndSouthThroughCycle,
+	allRedState,
+	...eastAndWestLeftTurnCycle,
+	allRedState,
+	...eastAndWestThroughCycle,
 ])
