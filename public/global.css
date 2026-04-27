@@ -28,6 +28,7 @@ body:has(button:interest-source) button {
 	--button-width: 25px;
 
 	all: unset;
+	background-repeat: no-repeat;
 	cursor: pointer;
 	display: inline-block;
 	width: var(--button-width);
@@ -60,39 +61,71 @@ body:has(button:interest-source) button {
 }
 
 .traffic-light {
-	& .traffic-light-button {
-		--image-width: 50px;
-
-		aspect-ratio: 50 / 151;
-		background-image: url('/sprites/ryg-50.png');
-		background-repeat: no-repeat;
-		background-size: calc(var(--image-width) + var(--button-width));
-	}
-	&.red-state {
-		& .traffic-light-button {
-			background-position: 0 0;
-		}
-
+	&.red-state,
+	&.red-left-arrow-state {
 		& .traffic-light-details .state-text {
 			color: #ff7777;
 		}
 	}
-	&.yellow-state {
-		& .traffic-light-button {
-			background-position: calc(-1 * var(--button-width)) 0;
-		}
-
+	&.yellow-state,
+	&.yellow-left-arrow-state,
+	&.flashing-yellow-left-arrow-state {
 		& .traffic-light-details .state-text {
 			color: #ffbd43;
 		}
 	}
-	&.green-state {
-		& .traffic-light-button {
-			background-position: calc(-2 * var(--button-width)) 0;
-		}
-
+	&.green-state,
+	&.green-left-arrow-state {
 		& .traffic-light-details .state-text {
 			color: #00f100;
 		}
+	}
+}
+
+.traffic-light.standard-type {
+	& .traffic-light-button {
+		aspect-ratio: 50 / 151;
+		background-image: url('/sprites/ryg-50.png');
+		background-size: 75px;
+	}
+
+	&.red-state .traffic-light-button {
+		background-position: 0 0;
+	}
+	&.yellow-state .traffic-light-button {
+		background-position: calc(-1 * var(--button-width)) 0;
+	}
+	&.green-state .traffic-light-button {
+		background-position: calc(-2 * var(--button-width)) 0;
+	}
+}
+
+.traffic-light.left-arrow-type {
+	& .traffic-light-button {
+		aspect-ratio: 50 / 205;
+		background-image: url('/sprites/left-50.png');
+		background-size: 125px;
+	}
+
+	&.red-left-arrow-state .traffic-light-button {
+		background-position: 0 0;
+	}
+	&.yellow-left-arrow-state .traffic-light-button {
+		background-position: calc(-1 * var(--button-width)) 0;
+	}
+	&.flashing-yellow-left-arrow-state .traffic-light-button {
+		animation: flashing-yellow-left-arrow 1.2s steps(2, jump-none) infinite;
+	}
+	&.green-left-arrow-state .traffic-light-button {
+		background-position: calc(-4 * var(--button-width)) 0;
+	}
+}
+
+@keyframes flashing-yellow-left-arrow {
+	0% {
+		background-position: calc(-2 * var(--button-width)) 0;
+	}
+	100% {
+		background-position: calc(-3 * var(--button-width)) 0;
 	}
 }
