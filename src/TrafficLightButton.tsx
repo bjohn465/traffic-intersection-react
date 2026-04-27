@@ -79,9 +79,7 @@ export function TrafficLightButton({ label }: TrafficLightButtonProps) {
 			className="traffic-light-button"
 			interestfor={tooltipId}
 			type="button"
-		>
-			🚦
-		</button>
+		/>
 	)
 }
 

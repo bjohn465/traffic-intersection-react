@@ -26,9 +26,19 @@ body:has(button:interest-source) button {
 .traffic-light-button {
 	all: unset;
 	cursor: pointer;
+	display: inline-block;
+	width: 25px;
 
 	&:focus {
 		outline: 3px solid #ffba39;
 		outline-offset: 2px;
 	}
+}
+
+.traffic-light .traffic-light-button {
+	aspect-ratio: 50 / 151;
+	background-image: url('/sprites/ryg-50.png');
+	background-repeat: no-repeat;
+	background-size: 75px;
+	background-position: 0 0;
 }
