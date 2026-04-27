@@ -35,7 +35,7 @@ body:has(button:interest-source) button {
 }
 
 .traffic-light-button {
-	--button-width: 25px;
+	--button-width: 20px;
 
 	all: unset;
 	background-repeat: no-repeat;
@@ -96,7 +96,7 @@ body:has(button:interest-source) button {
 	& .traffic-light-button {
 		aspect-ratio: 50 / 151;
 		background-image: url('/sprites/ryg-50.png');
-		background-size: 75px;
+		background-size: 60px;
 	}
 
 	&.red-state .traffic-light-button {
@@ -114,7 +114,7 @@ body:has(button:interest-source) button {
 	& .traffic-light-button {
 		aspect-ratio: 50 / 205;
 		background-image: url('/sprites/left-50.png');
-		background-size: 125px;
+		background-size: 100px;
 	}
 
 	&.red-left-arrow-state .traffic-light-button {
