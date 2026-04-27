@@ -5,7 +5,7 @@ import {
 	StandardTrafficLightStates,
 } from './TrafficLightStates'
 
-export const state: IntersectionState = Object.freeze({
+const allRedState = {
 	north: Object.freeze({
 		left: LeftArrowTrafficLightStates.RED_LEFT_ARROW,
 		through: StandardTrafficLightStates.RED,
@@ -22,7 +22,47 @@ export const state: IntersectionState = Object.freeze({
 		left: LeftArrowTrafficLightStates.RED_LEFT_ARROW,
 		through: StandardTrafficLightStates.RED,
 	}),
-})
+}
+
+export const states: ReadonlyArray<IntersectionState> = Object.freeze([
+	allRedState,
+	{
+		north: Object.freeze({
+			left: LeftArrowTrafficLightStates.GREEN_LEFT_ARROW,
+			through: StandardTrafficLightStates.RED,
+		}),
+		east: Object.freeze({
+			left: LeftArrowTrafficLightStates.RED_LEFT_ARROW,
+			through: StandardTrafficLightStates.RED,
+		}),
+		south: Object.freeze({
+			left: LeftArrowTrafficLightStates.GREEN_LEFT_ARROW,
+			through: StandardTrafficLightStates.RED,
+		}),
+		west: Object.freeze({
+			left: LeftArrowTrafficLightStates.RED_LEFT_ARROW,
+			through: StandardTrafficLightStates.RED,
+		}),
+	},
+	{
+		north: Object.freeze({
+			left: LeftArrowTrafficLightStates.YELLOW_LEFT_ARROW,
+			through: StandardTrafficLightStates.RED,
+		}),
+		east: Object.freeze({
+			left: LeftArrowTrafficLightStates.RED_LEFT_ARROW,
+			through: StandardTrafficLightStates.RED,
+		}),
+		south: Object.freeze({
+			left: LeftArrowTrafficLightStates.YELLOW_LEFT_ARROW,
+			through: StandardTrafficLightStates.RED,
+		}),
+		west: Object.freeze({
+			left: LeftArrowTrafficLightStates.RED_LEFT_ARROW,
+			through: StandardTrafficLightStates.RED,
+		}),
+	},
+])
 
 /** Describes the state of an intersection. */
 export type IntersectionState = {

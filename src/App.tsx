@@ -1,6 +1,19 @@
+import { useState } from 'react'
 import { Intersection } from './Intersection'
-import { state } from './IntersectionState'
+import { states } from './IntersectionState'
 
 export default function App() {
-	return <Intersection state={state} />
+	const [currentStateIndex, setCurrentStateIndex] = useState(0)
+	const state = states[currentStateIndex]
+	const handleChangeStateClick = () =>
+		setCurrentStateIndex((previousIndex) => (previousIndex + 1) % states.length)
+
+	return (
+		<>
+			<Intersection state={state} />
+			<button type="button" onClick={handleChangeStateClick}>
+				Change State
+			</button>
+		</>
+	)
 }
