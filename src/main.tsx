@@ -3,6 +3,7 @@ import { createRoot } from 'react-dom/client'
 import App from './App.tsx'
 
 const root = document.createElement('div')
+root.classList.add('intersection')
 document.body.appendChild(root)
 createRoot(root).render(
 	<StrictMode>
