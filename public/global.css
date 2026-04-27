@@ -24,10 +24,12 @@ body:has(button:interest-source) button {
 }
 
 .traffic-light-button {
+	--button-width: 25px;
+
 	all: unset;
 	cursor: pointer;
 	display: inline-block;
-	width: 25px;
+	width: var(--button-width);
 
 	&:focus {
 		outline: 3px solid #ffba39;
@@ -35,10 +37,22 @@ body:has(button:interest-source) button {
 	}
 }
 
-.traffic-light .traffic-light-button {
-	aspect-ratio: 50 / 151;
-	background-image: url('/sprites/ryg-50.png');
-	background-repeat: no-repeat;
-	background-size: 75px;
-	background-position: 0 0;
+.traffic-light {
+	& .traffic-light-button {
+		--image-width: 50px;
+
+		aspect-ratio: 50 / 151;
+		background-image: url('/sprites/ryg-50.png');
+		background-repeat: no-repeat;
+		background-size: calc(var(--image-width) + var(--button-width));
+	}
+	&.red-state .traffic-light-button {
+		background-position: 0 0;
+	}
+	&.yellow-state .traffic-light-button {
+		background-position: calc(-1 * var(--button-width)) 0;
+	}
+	&.green-state .traffic-light-button {
+		background-position: calc(-2 * var(--button-width)) 0;
+	}
 }
