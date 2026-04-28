@@ -1,6 +1,6 @@
 # Traffic Intersection
 
-Models a a four-way traffic intersection. Each part of the intersection has four
+Models a four-way traffic intersection. Each part of the intersection has four
 lanes:
 
 - A left turn lane
