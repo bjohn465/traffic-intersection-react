@@ -11,15 +11,34 @@ The traffic light can either be red, yellow, or green. The left-hand turn lane
 has its own dedicated light. That light can either be red, yellow, green, or
 flashing orange (go if no cars are coming the other way).
 
-## A Highlight of Some Available Scripts
+## Getting Started
 
-In the project directory, you can run:
+### Requirements
 
-### `npm run dev`
+[Node.js](https://nodejs.org/) versions that match the range `>=24.15.0 <25` and
+an [`npm` CLI](https://docs.npmjs.com/cli/) version that matches the range
+`>=11.12.1 <12` are required to run the code.
 
-Runs the app in the development mode. Once development mode has started, the
-application will be available at http://localhost:5173.
+The program is best viewed on a desktop browser with JavaScript enabled and
+support for the following features:
 
-### `npm run build`
+- The [popover API](https://caniuse.com/wf-popover)
+- [CSS anchor positioning](https://caniuse.com/css-anchor-positioning)
+- [CSS nesting](https://caniuse.com/css-nesting)
+- [CSS variables](https://caniuse.com/css-variables)
 
-Builds the app for production to the `dist` folder.
+A browser that supports
+[interest invokers](https://caniuse.com/wf-interest-invokers) is recommended but
+not required.
+
+### Running the Code
+
+Run the following commands to run the program after cloning or downloading the
+code locally:
+
+```bash
+npm install
+npm run dev
+```
+
+Then open a browser and navigate to [localhost:5173](http://localhost:5173).
